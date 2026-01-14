@@ -1,5 +1,8 @@
 use core::cell::Cell;
 use core::num::NonZero;
+#[cfg(not(bootstrap))]
+use std::assert_matches;
+#[cfg(bootstrap)]
 use std::assert_matches::assert_matches;
 use std::collections::TryReserveErrorKind::*;
 use std::collections::VecDeque;

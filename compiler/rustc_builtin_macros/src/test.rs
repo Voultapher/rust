@@ -1,6 +1,9 @@
 //! The expansion from a test function to the appropriate test struct for libtest
 //! Ideally, this code would be in libtest but for efficiency and error messages it lives here.
 
+#[cfg(not(bootstrap))]
+use std::assert_matches;
+#[cfg(bootstrap)]
 use std::assert_matches::assert_matches;
 use std::iter;
 

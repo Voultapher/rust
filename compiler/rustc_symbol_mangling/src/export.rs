@@ -1,4 +1,7 @@
+#[cfg(bootstrap)]
 use std::assert_matches::debug_assert_matches;
+#[cfg(not(bootstrap))]
+use std::debug_assert_matches;
 
 use rustc_abi::IntegerType;
 use rustc_data_structures::stable_hasher::StableHasher;

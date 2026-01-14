@@ -1,6 +1,9 @@
 //! Inlining pass for MIR functions.
 
+#[cfg(bootstrap)]
 use std::assert_matches::debug_assert_matches;
+#[cfg(not(bootstrap))]
+use std::debug_assert_matches;
 use std::iter;
 use std::ops::{Range, RangeFrom};
 

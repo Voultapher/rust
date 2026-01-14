@@ -1,3 +1,6 @@
+#[cfg(not(bootstrap))]
+use std::assert_matches;
+#[cfg(bootstrap)]
 use std::assert_matches::assert_matches;
 use std::collections::hash_map::Entry;
 

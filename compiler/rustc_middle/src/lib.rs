@@ -31,7 +31,7 @@
 #![allow(rustc::untranslatable_diagnostic)]
 #![cfg_attr(bootstrap, feature(array_windows))]
 #![feature(allocator_api)]
-#![feature(assert_matches)]
+#![cfg_attr(bootstrap, feature(assert_matches))]
 #![feature(associated_type_defaults)]
 #![feature(box_as_ptr)]
 #![feature(box_patterns)]

@@ -8,7 +8,10 @@
 //! Typical examples would include: minimum element in SCC, maximum element
 //! reachable from it, etc.
 
+#[cfg(bootstrap)]
 use std::assert_matches::debug_assert_matches;
+#[cfg(not(bootstrap))]
+use std::debug_assert_matches;
 use std::fmt::Debug;
 use std::marker::PhantomData;
 use std::ops::Range;

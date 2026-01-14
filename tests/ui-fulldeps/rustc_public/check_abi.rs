@@ -6,7 +6,7 @@
 //@ ignore-remote
 
 #![feature(rustc_private)]
-#![feature(assert_matches)]
+#![cfg_attr(bootstrap, feature(assert_matches))]
 #![feature(ascii_char, ascii_char_variants)]
 
 extern crate rustc_driver;
@@ -25,7 +25,10 @@ use rustc_public::mir::mono::Instance;
 use rustc_public::target::MachineInfo;
 use rustc_public::ty::{AdtDef, RigidTy, Ty, TyKind};
 use rustc_public::{CrateDef, CrateItem, CrateItems, ItemKind};
+#[cfg(bootstrap)]
 use std::assert_matches::assert_matches;
+#[cfg(not(bootstrap))]
+use std::assert_matches;
 use std::collections::HashSet;
 use std::convert::TryFrom;
 use std::io::Write;

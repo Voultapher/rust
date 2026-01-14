@@ -7,6 +7,9 @@
 //! `RETURN_PLACE` the MIR arguments) are always fully normalized (and
 //! contain revealed `impl Trait` values).
 
+#[cfg(not(bootstrap))]
+use std::assert_matches;
+#[cfg(bootstrap)]
 use std::assert_matches::assert_matches;
 
 use itertools::Itertools;

@@ -2,8 +2,11 @@
 
 #![allow(rustc::usage_of_ty_tykind)]
 
+#[cfg(bootstrap)]
 use std::assert_matches::debug_assert_matches;
 use std::borrow::Cow;
+#[cfg(not(bootstrap))]
+use std::debug_assert_matches;
 use std::ops::{ControlFlow, Range};
 
 use hir::def::{CtorKind, DefKind};

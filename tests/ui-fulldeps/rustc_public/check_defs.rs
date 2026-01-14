@@ -7,7 +7,7 @@
 //@ edition: 2021
 
 #![feature(rustc_private)]
-#![feature(assert_matches)]
+#![cfg_attr(bootstrap, feature(assert_matches))]
 
 extern crate rustc_middle;
 
@@ -19,7 +19,10 @@ use mir::{TerminatorKind::*, mono::Instance};
 use rustc_public::mir::mono::InstanceKind;
 use rustc_public::ty::{RigidTy, Ty, TyKind, UintTy};
 use rustc_public::*;
+#[cfg(bootstrap)]
 use std::assert_matches::assert_matches;
+#[cfg(not(bootstrap))]
+use std::assert_matches;
 use std::io::Write;
 use std::ops::ControlFlow;
 

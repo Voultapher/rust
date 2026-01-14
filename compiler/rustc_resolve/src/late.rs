@@ -6,9 +6,12 @@
 //! If you wonder why there's no `early.rs`, that's because it's split into three files -
 //! `build_reduced_graph.rs`, `macros.rs` and `imports.rs`.
 
+#[cfg(bootstrap)]
 use std::assert_matches::debug_assert_matches;
 use std::borrow::Cow;
 use std::collections::hash_map::Entry;
+#[cfg(not(bootstrap))]
+use std::debug_assert_matches;
 use std::mem::{replace, swap, take};
 use std::ops::ControlFlow;
 

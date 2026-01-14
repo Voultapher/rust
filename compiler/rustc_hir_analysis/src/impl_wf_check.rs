@@ -8,7 +8,10 @@
 //! specialization errors. These things can (and probably should) be
 //! fixed, but for the moment it's easier to do these checks early.
 
+#[cfg(bootstrap)]
 use std::assert_matches::debug_assert_matches;
+#[cfg(not(bootstrap))]
+use std::debug_assert_matches;
 
 use min_specialization::check_min_specialization;
 use rustc_data_structures::fx::FxHashSet;

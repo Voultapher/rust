@@ -4,6 +4,9 @@ mod check_match;
 mod const_to_pat;
 mod migration;
 
+#[cfg(not(bootstrap))]
+use std::assert_matches;
+#[cfg(bootstrap)]
 use std::assert_matches::assert_matches;
 use std::cmp::Ordering;
 use std::sync::Arc;

@@ -1,4 +1,7 @@
 #![allow(rustc::symbol_intern_string_literal)]
+#[cfg(not(bootstrap))]
+use std::assert_matches;
+#[cfg(bootstrap)]
 use std::assert_matches::assert_matches;
 use std::io::prelude::*;
 use std::iter::Peekable;

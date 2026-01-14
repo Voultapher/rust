@@ -10,6 +10,9 @@
 //! otherwise silence errors, if move analysis runs after promotion on broken
 //! MIR.
 
+#[cfg(not(bootstrap))]
+use std::assert_matches;
+#[cfg(bootstrap)]
 use std::assert_matches::assert_matches;
 use std::cell::Cell;
 use std::{cmp, iter, mem};

@@ -4,9 +4,12 @@
 
 pub mod tls;
 
+#[cfg(bootstrap)]
 use std::assert_matches::debug_assert_matches;
 use std::borrow::{Borrow, Cow};
 use std::cmp::Ordering;
+#[cfg(not(bootstrap))]
+use std::debug_assert_matches;
 use std::env::VarError;
 use std::ffi::OsStr;
 use std::hash::{Hash, Hasher};

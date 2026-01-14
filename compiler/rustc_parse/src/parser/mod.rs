@@ -16,7 +16,10 @@ mod ty;
 pub mod asm;
 pub mod cfg_select;
 
+#[cfg(bootstrap)]
 use std::assert_matches::debug_assert_matches;
+#[cfg(not(bootstrap))]
+use std::debug_assert_matches;
 use std::{fmt, mem, slice};
 
 use attr_wrapper::{AttrWrapper, UsePreAttrPos};

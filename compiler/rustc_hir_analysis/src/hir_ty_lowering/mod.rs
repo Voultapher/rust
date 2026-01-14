@@ -19,6 +19,9 @@ mod dyn_trait;
 pub mod errors;
 pub mod generics;
 
+#[cfg(not(bootstrap))]
+use std::assert_matches;
+#[cfg(bootstrap)]
 use std::assert_matches::assert_matches;
 use std::slice;
 

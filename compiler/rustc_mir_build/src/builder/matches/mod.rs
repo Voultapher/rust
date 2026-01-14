@@ -5,8 +5,11 @@
 //! This also includes code for pattern bindings in `let` statements and
 //! function parameters.
 
+#[cfg(bootstrap)]
 use std::assert_matches::debug_assert_matches;
 use std::borrow::Borrow;
+#[cfg(not(bootstrap))]
+use std::debug_assert_matches;
 use std::mem;
 use std::sync::Arc;
 

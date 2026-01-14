@@ -1,6 +1,9 @@
+#[cfg(bootstrap)]
 use std::assert_matches::debug_assert_matches;
 use std::cell::{Cell, RefCell};
 use std::cmp::max;
+#[cfg(not(bootstrap))]
+use std::debug_assert_matches;
 use std::ops::Deref;
 
 use rustc_data_structures::fx::FxHashSet;

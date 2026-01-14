@@ -2,6 +2,9 @@
 //! into a place.
 //! All high-level functions to write to memory work on places as destinations.
 
+#[cfg(not(bootstrap))]
+use std::assert_matches;
+#[cfg(bootstrap)]
 use std::assert_matches::assert_matches;
 
 use either::{Either, Left, Right};

@@ -8,7 +8,7 @@
 //@ edition: 2024
 
 #![feature(rustc_private)]
-#![feature(assert_matches)]
+#![cfg_attr(bootstrap, feature(assert_matches))]
 
 extern crate rustc_middle;
 

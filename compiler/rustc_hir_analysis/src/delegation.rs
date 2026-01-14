@@ -2,7 +2,10 @@
 //!
 //! For more information about delegation design, see the tracking issue #118212.
 
+#[cfg(bootstrap)]
 use std::assert_matches::debug_assert_matches;
+#[cfg(not(bootstrap))]
+use std::debug_assert_matches;
 
 use rustc_data_structures::fx::FxHashMap;
 use rustc_hir::def::DefKind;

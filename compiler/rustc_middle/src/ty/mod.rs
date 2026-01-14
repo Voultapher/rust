@@ -11,6 +11,9 @@
 
 #![allow(rustc::usage_of_ty_tykind)]
 
+#[cfg(not(bootstrap))]
+use std::assert_matches;
+#[cfg(bootstrap)]
 use std::assert_matches::assert_matches;
 use std::fmt::Debug;
 use std::hash::{Hash, Hasher};

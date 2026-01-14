@@ -1,7 +1,10 @@
 // ignore-tidy-filelength
 
+#[cfg(bootstrap)]
 use std::assert_matches::debug_assert_matches;
 use std::borrow::Cow;
+#[cfg(not(bootstrap))]
+use std::debug_assert_matches;
 use std::iter;
 use std::path::PathBuf;
 

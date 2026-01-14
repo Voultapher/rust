@@ -392,7 +392,6 @@
 //
 // Only for re-exporting:
 // tidy-alphabetical-start
-#![feature(assert_matches)]
 #![feature(async_iterator)]
 #![feature(c_variadic)]
 #![feature(cfg_accessible)]
@@ -469,6 +468,13 @@ extern crate std as realstd;
 // The standard macros that are not built-in to the compiler.
 #[macro_use]
 mod macros;
+
+// These macros are explicitly exported here and not in the preludes - for now - to require manual
+// import by users to avoid compatibility issues such as with the third-party assert_matches macro.
+// See https://github.com/rust-lang/rust/pull/137487 and
+// https://github.com/rust-lang/rust/issues/82913
+#[stable(feature = "assert_matches", since = "CURRENT_RUSTC_VERSION")]
+pub use core::{assert_matches, debug_assert_matches};
 
 // The runtime entry point and a few unstable public functions used by the
 // compiler
@@ -711,9 +717,9 @@ pub use core::todo;
 // Re-export built-in macros defined through core.
 #[stable(feature = "builtin_macro_prelude", since = "1.38.0")]
 pub use core::{
-    assert, assert_matches, cfg, column, compile_error, concat, const_format_args, env, file,
-    format_args, format_args_nl, include, include_bytes, include_str, line, log_syntax,
-    module_path, option_env, stringify, trace_macros,
+    assert, cfg, column, compile_error, concat, const_format_args, env, file, format_args,
+    format_args_nl, include, include_bytes, include_str, line, log_syntax, module_path, option_env,
+    stringify, trace_macros,
 };
 // Re-export macros defined in core.
 #[stable(feature = "rust1", since = "1.0.0")]

@@ -1,5 +1,8 @@
+#[cfg(bootstrap)]
 use std::assert_matches::debug_assert_matches;
 use std::cell::LazyCell;
+#[cfg(not(bootstrap))]
+use std::debug_assert_matches;
 
 use rustc_data_structures::fx::{FxHashMap, FxIndexMap, FxIndexSet};
 use rustc_data_structures::unord::UnordSet;

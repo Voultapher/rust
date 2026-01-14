@@ -3,6 +3,9 @@ use core::num::NonZero;
 use core::ptr::NonNull;
 use core::{assert_eq, assert_ne};
 use std::alloc::System;
+#[cfg(not(bootstrap))]
+use std::assert_matches;
+#[cfg(bootstrap)]
 use std::assert_matches::assert_matches;
 use std::borrow::Cow;
 use std::cell::Cell;

@@ -222,12 +222,12 @@ use prelude::rust_2024::*;
 #[macro_use]
 mod macros;
 
-#[unstable(feature = "assert_matches", issue = "82775")]
-/// Unstable module containing the unstable `assert_matches` macro.
-pub mod assert_matches {
-    #[unstable(feature = "assert_matches", issue = "82775")]
-    pub use crate::macros::{assert_matches, debug_assert_matches};
-}
+// These macros are explicitly exported here and not in the preludes - for now - to require manual
+// import by users to avoid compatibility issues such as with the third-party assert_matches macro.
+// See https://github.com/rust-lang/rust/pull/137487 and
+// https://github.com/rust-lang/rust/issues/82913
+#[stable(feature = "assert_matches", since = "CURRENT_RUSTC_VERSION")]
+pub use crate::macros::{assert_matches, debug_assert_matches};
 
 #[unstable(feature = "derive_from", issue = "144889")]
 /// Unstable module containing the unstable `From` derive macro.

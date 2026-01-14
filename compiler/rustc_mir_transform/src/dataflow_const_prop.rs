@@ -2,6 +2,9 @@
 //!
 //! Currently, this pass only propagates scalar values.
 
+#[cfg(not(bootstrap))]
+use std::assert_matches;
+#[cfg(bootstrap)]
 use std::assert_matches::assert_matches;
 use std::cell::RefCell;
 use std::fmt::Formatter;

@@ -15,7 +15,7 @@
 #![feature(allocator_api)]
 #![feature(ascii_char)]
 #![feature(ascii_char_variants)]
-#![feature(assert_matches)]
+#![cfg_attr(bootstrap, feature(assert_matches))]
 #![feature(auto_traits)]
 #![feature(cfg_select)]
 #![feature(core_intrinsics)]

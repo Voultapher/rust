@@ -1,5 +1,8 @@
 //! See docs in build/expr/mod.rs
 
+#[cfg(not(bootstrap))]
+use std::assert_matches;
+#[cfg(bootstrap)]
 use std::assert_matches::assert_matches;
 use std::iter;
 

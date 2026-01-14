@@ -8,7 +8,7 @@
 //@ edition: 2021
 
 #![feature(rustc_private)]
-#![feature(assert_matches)]
+#![cfg_attr(bootstrap, feature(assert_matches))]
 #![feature(ascii_char, ascii_char_variants)]
 
 extern crate rustc_hir;
@@ -20,7 +20,10 @@ extern crate rustc_interface;
 extern crate rustc_public;
 
 use std::ascii::Char;
+#[cfg(bootstrap)]
 use std::assert_matches::assert_matches;
+#[cfg(not(bootstrap))]
+use std::assert_matches;
 use std::cmp::{max, min};
 use std::collections::HashMap;
 use std::ffi::CStr;
